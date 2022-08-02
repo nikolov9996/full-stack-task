@@ -24,8 +24,7 @@ const updateInstruments = () => {
 
           bulkOps.push(upsertDoc);
         });
-        const edited = await InstrumentModel.bulkWrite(bulkOps);
-        console.log(edited);
+        await InstrumentModel.bulkWrite(bulkOps);
       } else {
         const withCreated = formatted.map((x) => {
           return { ...x, created_at: new Date() };
